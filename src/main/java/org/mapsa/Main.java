@@ -27,25 +27,28 @@ public class Main {
         personRepo.print();
 
         personRepo.add(new Teacher("john6", "lobok", 1650));
-
-        System.out.println("AFTER add AGain ");
-
+        System.out.println("AFTER add Again ");
         personRepo.print();
 
+
+        System.out.println("add array of elements ");
         Person[] psns = new Person[]{new Student("a", "b", 10), new Student("c", "d", 20), new Student("e", "f", 30)};
         personRepo.add(psns);
-
         personRepo.print();
 
+
+        System.out.println("remove all od one obj");
         personRepo.removeAll(st1);
-
         personRepo.print();
 
 
+        System.out.println("get with index");
         System.out.println(personRepo.getByIndex(3));
 
 
+        System.out.println("clear");
         personRepo.clear();
+        personRepo.print();
 
 
     }
