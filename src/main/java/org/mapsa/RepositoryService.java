@@ -57,6 +57,18 @@ public class RepositoryService<T extends Person> implements FuncRepo<T> {
 
     }
 
+
+    @Override
+    public T getByIndex(int index) {
+
+        if (elements[index] == null) {
+
+            return null;
+        }
+
+        return (T) elements[index];
+    }
+
     @Override
     public void remove(T t) {
 
@@ -73,7 +85,7 @@ public class RepositoryService<T extends Person> implements FuncRepo<T> {
     public void removeAll(T t) {
 
 
-        /** first way */
+        /** first solution */
 
 
         for (Person p : elements) {
@@ -84,7 +96,7 @@ public class RepositoryService<T extends Person> implements FuncRepo<T> {
             }
 
         }
-        /** second way */
+        /** second solution */
 
 //        for (int i = 0; i < elements.length; i++) {
 //
@@ -110,13 +122,6 @@ public class RepositoryService<T extends Person> implements FuncRepo<T> {
         }
 
 
-    }
-
-
-    @Override
-    public T getByIndex(int index) {
-
-        return (T) elements[index];
     }
 
 
