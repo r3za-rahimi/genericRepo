@@ -22,4 +22,10 @@ public interface FuncRepo<T> {
 
 
     void print();
+
+
+    default T SelectByIndex(int index){
+
+        return getByIndex(index);
+    }
 }

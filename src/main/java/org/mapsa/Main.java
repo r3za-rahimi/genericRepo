@@ -45,6 +45,8 @@ public class Main {
         System.out.println("get with index");
         System.out.println(personRepo.getByIndex(3));
 
+        System.out.println(personRepo.SelectByIndex(3));
+
 
         System.out.println("clear");
         personRepo.clear();
