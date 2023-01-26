@@ -1,5 +1,6 @@
 package org.mapsa;
 
+import org.mapsa.genricarray.RepositoryService;
 import org.mapsa.person.Person;
 import org.mapsa.person.Student;
 import org.mapsa.person.Teacher;
@@ -10,6 +11,8 @@ public class Main {
         RepositoryService<Person> personRepo = new RepositoryService<>();
 
         Student st1 = new Student("reza0", "Johonson", 10);
+
+
         personRepo.add(st1);
         personRepo.add(st1);
         personRepo.add(st1);

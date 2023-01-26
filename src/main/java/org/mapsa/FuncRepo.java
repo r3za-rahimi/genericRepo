@@ -1,20 +1,16 @@
 package org.mapsa;
 
+import java.io.IOException;
 import java.util.List;
 
-public interface FuncRepo<T> {
+public interface FuncRepo<T>  {
 
     void add(T t);
 
     void add(T[] t);
 
-    public void update(int index, T t);
 
-    public T getByIndex(int index);
-
-    void remove(T t);
-
-    void remove(int index);
+    void remove(T t) throws IOException;
 
     public void removeAll(T element);
 
@@ -24,8 +20,5 @@ public interface FuncRepo<T> {
     void print();
 
 
-    default T SelectByIndex(int index){
 
-        return getByIndex(index);
-    }
 }

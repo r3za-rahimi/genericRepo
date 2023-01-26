@@ -1,8 +1,9 @@
-package org.mapsa;
+package org.mapsa.genricarray;
 
+import org.mapsa.FuncRepo;
 import org.mapsa.person.Person;
 
-public class RepositoryService<T extends Person> implements FuncRepo<T> {
+public class RepositoryService<T extends Person> implements FuncRepo<T>, FuncArray<T> {
 
     private Person[] elements;
 
@@ -50,9 +51,9 @@ public class RepositoryService<T extends Person> implements FuncRepo<T> {
 
 
     @Override
-    public void update(int index, T t) {
+    public void update(int i, T t) {
 
-        elements[index] = t;
+        elements[i] = t;
 
 
     }
@@ -110,7 +111,7 @@ public class RepositoryService<T extends Person> implements FuncRepo<T> {
 
     @Override
     public void clear() {
-
+//elements=null;
 
         for (Person p : elements) {
 
@@ -181,9 +182,13 @@ public class RepositoryService<T extends Person> implements FuncRepo<T> {
     /**
      * راه خوبی برای استفاده از این متد پیدا نکردم
      */
-    private boolean isIndexInvalid(int index) {
-        return index < 0 || index >= elements.length;
-    }
+//    private void isIndexInvalid(int index) {
+//
+//
+//
+//        return index < 0 || index >= elements.length;
+//        throw new RuntimeException();
+//    }
 
 
     @Override
