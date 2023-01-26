@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class RepositoryServiceWithFile<T extends Person> implements FuncRepo<T> {
+public class RepositoryServiceWithFile<T extends Person> implements FuncRepo<T> , FileFunc<T> {
 
 
     List<String> result = new ArrayList<>();
@@ -50,7 +50,6 @@ public class RepositoryServiceWithFile<T extends Person> implements FuncRepo<T> 
             throw new RuntimeException(e);
         }
 
-
     }
 
     @Override
@@ -61,9 +60,9 @@ public class RepositoryServiceWithFile<T extends Person> implements FuncRepo<T> 
             add((T) p);
         }
 
-
     }
 
+    @Override
     public void update(T oldElment, T newElment) {
         fileToList();
         for (int i = 0; i < result.size(); i++) {
@@ -72,16 +71,9 @@ public class RepositoryServiceWithFile<T extends Person> implements FuncRepo<T> 
 
                 result.set(i, newElment.toString());
             }
-
-
         }
 
-
-        System.out.println("update");
-        System.out.println(result);
         write();
-
-
     }
 
     @Override
@@ -136,18 +128,15 @@ public class RepositoryServiceWithFile<T extends Person> implements FuncRepo<T> 
     private void fileToList() {
 
 
-        bfr = new BufferedReader(fileReader);
         String line;
 
         try {
             while ((line = bfr.readLine()) != null) {
 
-                System.out.println(line);
-
                 result.add(line);
 
             }
-//            bfr.close();
+//            bfr.close(); ==> ????
 
         } catch (IOException e) {
 
@@ -161,7 +150,11 @@ public class RepositoryServiceWithFile<T extends Person> implements FuncRepo<T> 
 
         try {
             bfw = new BufferedWriter(new FileWriter(file));
-            bfw.write(result.toString());
+            for (String str : result) {
+
+                bfw.write(str + "\n");
+
+            }
             bfw.flush();
             bfw.close();
         } catch (IOException e) {

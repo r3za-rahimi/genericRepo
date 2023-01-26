@@ -17,7 +17,8 @@ public class FileMain {
         Student st2 = new Student("jaki2", "brown", 110);
         Student st3 = new Student("jaki3", "brown", 120);
         Student st4 = new Student("jaki4", "brown", 170);
-        Student st5 = new Student("john", "sdgdgdsgf", 200);
+        Student st5 = new Student("walter", "white", 200);
+
         fileService.add(st1);
 
         Person[] ps = new Person[]{st1, st2, st3, st4};
@@ -25,7 +26,7 @@ public class FileMain {
 
 
 //      fileService.remove(st4);
-//      fileService.removeAll(st1);
+        fileService.removeAll(st1);
 
 //      fileService.clear();
 
